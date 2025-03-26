@@ -7,13 +7,15 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    @FindBy (xpath = "//*[contains(text(),'username')]")
+    @FindBy (xpath = "//*[@id='ap_email']")
     private WebElement usernameInput;
 
-    @FindBy (xpath = "//*[contains(text(),'password')]")
+    @FindBy (xpath = "//*[@id='ap_password']")
     private WebElement passwordInput;
-    @FindBy (xpath = "//*[contains(text(),'submit')]")
-    private WebElement submitInput;
+    @FindBy (xpath = "//*[@id='continue']")
+    private WebElement continueBtn;
+    @FindBy (xpath = "//*[@id='signInSubmit']")
+    private WebElement submitBtn;
 
     @FindBy (xpath ="//a/i[contains(@class,'a-icon-logo')]")
     private WebElement logoCompany;
@@ -33,7 +35,16 @@ public class LoginPage extends BasePage {
         passwordInput.sendKeys(password);
     }
 
-    public void clickSubmit(){
-        submitInput.click();
+    public void clickButton(String button){
+        switch (button) {
+            case "continue":
+                continueBtn.click();
+                break;
+            case "submit":
+                submitBtn.click();
+                break;
+            default:
+                break;
+        }
     }
 }

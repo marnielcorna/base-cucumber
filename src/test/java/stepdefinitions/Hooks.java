@@ -21,6 +21,7 @@ public class Hooks {
         // Solo para demostrar que funciona:
         System.out.println("Testing against URL: " + url);
         System.out.println("Username (dynamic): " + ConfigReader.getProperty("admin.username"));
+        System.out.println("Username (dynamic): " + ConfigReader.getProperty("admin.password"));
     }
 
     @After

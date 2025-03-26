@@ -13,5 +13,7 @@ public class Constants {
     public static final String CONFIG_FILE = "config-uat.properties";
     public static final int DEFAULT_TIME_OUT_SECONDS = 30;
 
+    public static final String CONTINUE = "continue";
+    public static final String SUBMIT = "submit";
 
 }
