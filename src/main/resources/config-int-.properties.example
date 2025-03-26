@@ -1,0 +1,5 @@
+url=https://int.google.com
+browser=chrome
+headless=true
+username=${INT_USERNAME}
+password=${INT_PASSWORD}

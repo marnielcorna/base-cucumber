@@ -1,0 +1,17 @@
+url=https://www.amazon.com/
+browser=chrome
+headless=true
+
+
+# Users
+admin.username=${UAT_ADMIN_USER}
+admin.password=${UAT_ADMIN_PASS}
+
+buyer.username=${UAT_BUYER_USER}
+buyer.password=${UAT_BUYER_PASS}
+
+seller.username=${UAT_SELLER_USER}
+seller.password=${UAT_SELLER_PASS}
+
+guest.username=${UAT_GUEST_USER}
+guest.password=${UAT_GUEST_PASS}
