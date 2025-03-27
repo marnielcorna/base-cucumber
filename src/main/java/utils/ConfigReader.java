@@ -16,10 +16,10 @@ public class ConfigReader {
 
             InputStream input = ConfigReader.class.getClassLoader().getResourceAsStream(configFileName);
             if (input == null) {
-                System.out.println("Config file not found for environment: " + env);
+                System.out.println("Config file not found for environment: ################## " + env.toUpperCase() + " ##################");
             } else {
                 properties.load(input);
-                System.out.println("Loaded configuration for environment: " + env);
+                System.out.println("Loaded configuration for environment: ################## " + env.toUpperCase() + " ##################");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -46,12 +46,18 @@ public class ConfigReader {
         while (matcher.find()) {
             String varName = matcher.group(1);
             String varValue = System.getenv(varName);
-            if (varValue == null) {
-                varValue = "";
+            if (varValue == null || varValue.isEmpty()) {
+                System.err.println("Missing environment variable: " + varName);
+                throw new RuntimeException("Missing environment variable for: " + varName);
             }
             matcher.appendReplacement(buffer, varValue);
         }
         matcher.appendTail(buffer);
+
+        String finalValue = buffer.toString();
+        if (finalValue.isEmpty()) {
+            throw new RuntimeException("ERROR: Property '" + key + "' is empty. Check your environment variables or config file.");
+        }
 
         return buffer.toString();
     }

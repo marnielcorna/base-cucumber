@@ -7,6 +7,7 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import utils.ConfigReader;
 import utils.Constants;
+import utils.UserManager;
 
 public class Hooks {
     private static WebDriver driver;
@@ -18,10 +19,9 @@ public class Hooks {
         String url = ConfigReader.getProperty(Constants.URL);
         driver.get(url);
 
-        // Solo para demostrar que funciona:
-        System.out.println("Testing against URL: " + url);
-        System.out.println("Username (dynamic): " + ConfigReader.getProperty("admin.username"));
-        System.out.println("Username (dynamic): " + ConfigReader.getProperty("admin.password"));
+        //To demonstrate it works only:
+        System.out.println("Testing against URL: ---------> " + url);
+
     }
 
     @After

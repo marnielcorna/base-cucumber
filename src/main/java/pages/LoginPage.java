@@ -1,9 +1,15 @@
 package pages;
 
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 
 public class LoginPage extends BasePage {
 
@@ -17,22 +23,32 @@ public class LoginPage extends BasePage {
     @FindBy (xpath = "//*[@id='signInSubmit']")
     private WebElement submitBtn;
 
-    @FindBy (xpath ="//a/i[contains(@class,'a-icon-logo')]")
-    private WebElement logoCompany;
+    @FindBy (xpath ="//h1[contains(text(),'Iniciar')]")
+    private WebElement title;
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    public boolean getLogo(){
-        return logoCompany.isDisplayed();
+    public boolean loginPageIsDisplayed(){
+        return title.isDisplayed();
     }
     public void enterUsername(String username){
-        usernameInput.sendKeys(username);
+        try{
+            usernameInput.clear();
+            usernameInput.sendKeys(username);
+        } catch (Exception e){
+            System.out.println("Unable to enter the username: " + e);
+        }
     }
 
     public void enterPassword(String password){
-        passwordInput.sendKeys(password);
+        try{
+            passwordInput.clear();
+            passwordInput.sendKeys(password);
+        } catch (Exception e){
+            System.out.println("Unable to enter the password: " + e);
+        }
     }
 
     public void clickButton(String button){
