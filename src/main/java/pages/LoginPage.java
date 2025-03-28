@@ -18,10 +18,6 @@ public class LoginPage extends BasePage {
 
     @FindBy (xpath = "//*[@id='ap_password']")
     private WebElement passwordInput;
-    @FindBy (xpath = "//*[@id='continue']")
-    private WebElement continueBtn;
-    @FindBy (xpath = "//*[@id='signInSubmit']")
-    private WebElement submitBtn;
 
     @FindBy (xpath ="//h1[contains(text(),'Iniciar')]")
     private WebElement title;
@@ -48,19 +44,6 @@ public class LoginPage extends BasePage {
             passwordInput.sendKeys(password);
         } catch (Exception e){
             System.out.println("Unable to enter the password: " + e);
-        }
-    }
-
-    public void clickButton(String button){
-        switch (button) {
-            case "continue":
-                continueBtn.click();
-                break;
-            case "submit":
-                submitBtn.click();
-                break;
-            default:
-                break;
         }
     }
 }
