@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
     @FindBy (xpath = "//*[@id='ap_password']")
     private WebElement passwordInput;
 
-    @FindBy (xpath ="//h1[contains(text(),'Iniciar')]")
+    @FindBy (xpath ="//h1[contains(text(),'Sign in')]")
     private WebElement title;
 
     public LoginPage(WebDriver driver) {
